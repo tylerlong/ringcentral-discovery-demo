@@ -9,7 +9,12 @@ type PropsStore = {
 
 class App extends Component<PropsStore> {
   render() {
-    return store.ready ? 'I am ready' : <Spin />;
+    return (
+      <>
+        <h1>RingCentral Discovery Demo</h1>
+        {store.ready ? 'I am ready' : <Spin />}
+      </>
+    );
   }
 }
 
