@@ -12,8 +12,19 @@ class App extends Component<PropsStore> {
     return (
       <>
         <h1>RingCentral Discovery Demo</h1>
-        {store.ready ? 'I am ready' : <Spin />}
+        {store.ready ? <Main store={store} /> : <Spin />}
       </>
+    );
+  }
+}
+
+class Main extends Component<PropsStore> {
+  render() {
+    const store = this.props.store;
+    return store.token ? (
+      'You have logged in'
+    ) : (
+      <a href={store.authorizeUri}>Log in</a>
     );
   }
 }
